@@ -20,12 +20,15 @@ import DarkLogo from 'assets/images/logo-dark.svg';
 import { useNavigate } from 'react-router-dom';
 
 import { login } from '../../api/services/auth-service'; // Assuming you have an API function for login
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../redux/slices/authSlice';
 
 // ==============================|| AUTH LOGIN FORM ||============================== //
 
 export default function AuthLoginForm({ className, link }) {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -43,16 +46,18 @@ export default function AuthLoginForm({ className, link }) {
     try {
       const { email, password } = getValues();
       const userData = {
-        email: email, // Get email from form
-        password: password // Get password from form
+        email: email,
+        password: password
       };
-      const resultAction = await dispatch(loginUser(formData));
-
-      localStorage.setItem('user', JSON.stringify(response));
-      sessionStorage.setItem('user', JSON.stringify(response));
+      const response = await login(userData); // Call the login API
+      console.log(response, 'response from login API');
+      const resultAction = dispatch(loginUser(response));
+      console.log(resultAction, 'resultAction');
+      localStorage.setItem('userInfo', JSON.stringify(response));
+      sessionStorage.setItem('userInfo', JSON.stringify(response));
 
       if (loginUser.fulfilled.match(resultAction)) {
-        navigate('/dashboard');
+        navigate('/');
         reset();
       }
     } catch (error) {

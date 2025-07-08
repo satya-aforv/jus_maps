@@ -20,6 +20,7 @@ import Img2 from 'assets/images/user/avatar-2.png';
 import Img3 from 'assets/images/user/avatar-3.png';
 import Img4 from 'assets/images/user/avatar-4.png';
 import Img5 from 'assets/images/user/avatar-5.png';
+import { useDispatch } from 'react-redux';
 
 const notifications = [
   {
@@ -77,10 +78,10 @@ export default function Header() {
   useEffect(() => {
     const isUserExists = localStorage.getItem('user') || sessionStorage.getItem('user');
     if (!isUserExists) {
-      dispatch({ type: 'LOGIN' });
+      // dispatch();
     } else {
       const parsedUser = JSON.parse(isUserExists);
-      dispatch({ type: 'SET_USER', payload: parsedUser });
+      // dispatch({ type: 'SET_USER', payload: parsedUser });
     }
   }, []);
 

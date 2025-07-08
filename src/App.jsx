@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import router from 'routes';
 import AuthGuard from './utils/AuthGuard';
 import { store } from './redux/store';
+import { Provider } from 'react-redux';
 
 // ==============================|| APP - THEME, ROUTER, LOCAL ||============================== //
 
