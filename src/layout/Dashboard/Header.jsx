@@ -71,18 +71,13 @@ const notifications = [
 export default function Header() {
   const { menuMaster } = useGetMenuMaster();
   const drawerOpen = menuMaster?.isDashboardDrawerOpened;
-  const non_parsed_user = localStorage.getItem('user') || sessionStorage.getItem('user');
-  const user = non_parsed_user ? JSON.parse(non_parsed_user) : null;
   const dispatch = useDispatch();
+  const [userData, setUserData] = React.useState(null);
 
   useEffect(() => {
     const isUserExists = localStorage.getItem('user') || sessionStorage.getItem('user');
-    if (!isUserExists) {
-      // dispatch();
-    } else {
-      const parsedUser = JSON.parse(isUserExists);
-      // dispatch({ type: 'SET_USER', payload: parsedUser });
-    }
+    const parsedUser = isUserExists ? JSON.parse(isUserExists) : null;
+    setUserData(parsedUser);
   }, []);
 
   return (
@@ -194,8 +189,10 @@ export default function Header() {
                       <Image src={Img2} alt="user-avatar" className="user-avatar wid-35" roundedCircle />
                     </div>
                     <Stack gap={1}>
-                      <h6 className="text-white mb-0">Carson Darrin 🖖</h6>
-                      <span className="text-white text-opacity-75">carson.darrin@company.io</span>
+                      <h6 className="text-white mb-0">
+                        {userData?.user?.profile?.firstName + ' ' + userData?.user?.profile?.lastName || 'N/A'}
+                      </h6>
+                      <span className="text-white text-opacity-75">{userData?.user?.email || 'N/A'}</span>
                     </Stack>
                   </Stack>
                 </Dropdown.Header>
@@ -206,9 +203,9 @@ export default function Header() {
                       <i className="ph ph-gear me-2" />
                       Settings
                     </Dropdown.Item>
-                    <Dropdown.Item as={Link} to="#" className="justify-content-start">
-                      <i className="ph ph-share-network me-2" />
-                      Share
+                    <Dropdown.Item as={Link} to="/profile" className="justify-content-start">
+                      <i className="ph ph-user-circle me-2" />
+                      Profile
                     </Dropdown.Item>
                     <Dropdown.Item as={Link} to="#" className="justify-content-start">
                       <i className="ph ph-lock-key me-2" />

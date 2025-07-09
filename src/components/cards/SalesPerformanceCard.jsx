@@ -15,7 +15,7 @@ export default function SalesPerformanceCard({ title, icon, amount, progress }) 
         <h6 className="mb-0">{title}</h6>
         <Stack direction="horizontal" className="justify-content-between align-items-center">
           <Stack direction="horizontal" className="mb-0">
-            <i className={`${icon} f-30 m-r-10`} />
+            {/* <i className={`${icon} f-30 m-r-10`} /> */}
             <h3 className="f-w-300 mb-0">{amount}</h3>
           </Stack>
           <p className="mb-0">{progress.now}%</p>

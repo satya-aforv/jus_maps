@@ -11,14 +11,25 @@ import { UsersMap, EarningChart, RatingCard, RecentUsersCard } from 'sections/da
 // ===============================|| SALES PERFORMANCE CARD - DATA ||============================== //
 
 const salesPerformanceData = [
-  { title: 'Daily Sales', icon: 'ph ph-arrow-up text-success', amount: '$ 249.95', progress: { now: 67, className: 'bg-brand-color-1' } },
+  { title: 'Total Routes', icon: 'ph ph-arrow-up text-success', amount: '0', progress: { now: 67, className: 'bg-brand-color-1' } },
   {
-    title: 'Monthly Sales',
+    title: 'API Calls Today',
     icon: 'ph ph-arrow-down text-danger',
-    amount: '$ 2,942.32',
+    amount: '0',
     progress: { now: 36, className: 'bg-brand-color-2' }
   },
-  { title: 'Yearly Sales', icon: 'ph ph-arrow-up text-success', amount: '$ 8,638.32', progress: { now: 80, className: 'bg-brand-color-1' } }
+  {
+    title: 'Working APIs',
+    icon: 'ph ph-arrow-up text-success',
+    amount: '0',
+    progress: { now: 80, className: 'bg-brand-color-1' }
+  },
+  {
+    title: 'Stored Images',
+    icon: 'ph ph-arrow-up text-success',
+    amount: '0',
+    progress: { now: 80, className: 'bg-brand-color-1' }
+  }
 ];
 
 // ===============================|| STAT INDICATOR CARD - DATA ||============================== //
@@ -117,7 +128,7 @@ export default function DefaultPage() {
       ))}
 
       {/* row - 2 */}
-      <Col md={6} xl={8}>
+      {/* <Col md={6} xl={8}>
         <UsersMap />
       </Col>
       <Col md={6} xl={4}>
@@ -125,22 +136,22 @@ export default function DefaultPage() {
           <EarningChart />
           <StatIndicatorCard data={statIndicatorData} />
         </>
-      </Col>
+      </Col> */}
 
       {/* row - 3 */}
-      {socialStatsData.map((item, index) => (
+      {/* {socialStatsData.map((item, index) => (
         <Col key={index} md={index === 0 ? 12 : 6} xl={4}>
           <SocialStatsCard {...item} />
         </Col>
-      ))}
+      ))} */}
 
       {/* row - 4 */}
-      <Col md={6} xl={4}>
+      {/* <Col md={6} xl={4}>
         <RatingCard />
       </Col>
       <Col md={6} xl={8}>
         <RecentUsersCard />
-      </Col>
+      </Col> */}
     </Row>
   );
 }

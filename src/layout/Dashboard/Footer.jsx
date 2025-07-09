@@ -16,27 +16,27 @@ export default function Footer() {
           {/* Footer Text */}
           <Col xs="auto" className="my-1">
             <p className="m-0">
-              {branding.brandName} ♥ Crafted By Team{' '}
-              <a href="https://codedthemes.com/" target="_blank" rel="noopener noreferrer" className="text-primary">
-                CodedThemes
+              Crafted By Team{' '}
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary">
+                Aforv
               </a>
             </p>
           </Col>
 
           {/* Footer Links */}
-          <Col xs="auto" className="my-1">
+          {/* <Col xs="auto" className="my-1">
             <Stack direction="horizontal" gap={3} className="justify-content-center">
               <Nav.Link className="p-0" as="a" href="/">
                 Home
               </Nav.Link>
-              <Nav.Link className="p-0" as="a" href="https://codedthemes.gitbook.io/datta" target="_blank" rel="noopener noreferrer">
+              <Nav.Link className="p-0" as="a" href="#" target="_blank" rel="noopener noreferrer">
                 Documentation
               </Nav.Link>
-              <Nav.Link className="p-0" as="a" href="https://codedthemes.support-hub.io/" target="_blank" rel="noopener noreferrer">
+              <Nav.Link className="p-0" as="a" href="#" target="_blank" rel="noopener noreferrer">
                 Support
               </Nav.Link>
             </Stack>
-          </Col>
+          </Col> */}
         </Row>
       </div>
     </footer>

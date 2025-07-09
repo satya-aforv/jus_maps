@@ -1,19 +1,16 @@
-import { createBrowserRouter, Navigate, redirect } from 'react-router-dom';
+import { lazy } from 'react';
+import { createBrowserRouter, Navigate, redirect, Route } from 'react-router-dom';
 import AuthLayout from '../layout/Auth';
 import MainLayout from './MainLayout';
 import LoginPage from '../views/auth/login/Login';
 import RegisterPage from '../views/auth/register/Register';
 import Dashboard from '../layout/Dashboard';
 import NotFoundPage from '../views/404/NotFoundPage.jsx'; // Make sure to create this component
+import Loadable from 'components/Loadable';
 
-// project-imports
-import PagesRoutes from './PagesRoutes';
-import NavigationRoutes from './NavigationRoutes';
-import ComponentsRoutes from './ComponentsRoutes';
-import FormsRoutes from './FormsRoutes';
-import TablesRoutes from './TablesRoutes';
-import ChartMapRoutes from './ChartMapRoutes';
-import OtherRoutes from './OtherRoutes';
+import Profile from '../views/profile/index.jsx';
+import RouteAnalysisPage from '../views/route-analysis/index.jsx';
+const DefaultPages = Loadable(lazy(() => import('views/navigation/dashboard/Default')));
 
 const router = createBrowserRouter(
   [
@@ -28,11 +25,29 @@ const router = createBrowserRouter(
         return null;
       },
       children: [
-        { index: true, element: <Dashboard /> }
+        {
+          path: '/',
+          element: <Dashboard />,
+          children: [
+            {
+              path: '/',
+              element: <DefaultPages />
+            },
+            {
+              path: '/profile',
+              element: <Profile />
+            },
+            {
+              path: '/route-analysis',
+              element: <RouteAnalysisPage />
+            }
+          ]
+        }
+
         // ...PagesRoutes,
         // ...NavigationRoutes,
         // ...ComponentsRoutes,
-        // ...FormsRoutes,
+        // ...FormsRoutes
         // ...TablesRoutes,
         // ...ChartMapRoutes,
         // ...OtherRoutes

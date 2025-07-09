@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { login } from '../../api/services/auth-service'; // Assuming you have an API function for login
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../redux/slices/authSlice';
+import { addUserData } from '../../redux/slices/authSlice';
 
 // ==============================|| AUTH LOGIN FORM ||============================== //
 
@@ -49,17 +49,14 @@ export default function AuthLoginForm({ className, link }) {
         email: email,
         password: password
       };
-      const response = await login(userData); // Call the login API
-      console.log(response, 'response from login API');
-      const resultAction = dispatch(loginUser(response));
-      console.log(resultAction, 'resultAction');
-      localStorage.setItem('userInfo', JSON.stringify(response));
-      sessionStorage.setItem('userInfo', JSON.stringify(response));
+      const response = await login(userData);
 
-      if (loginUser.fulfilled.match(resultAction)) {
-        navigate('/');
-        reset();
-      }
+      dispatch(addUserData(response));
+      localStorage.setItem('user', JSON.stringify(response));
+      sessionStorage.setItem('user', JSON.stringify(response));
+      console.log('API Response:', response);
+      navigate('/');
+      reset();
     } catch (error) {
       console.error('Login failed:', error);
       // Handle error (show toast, etc.)
@@ -76,9 +73,7 @@ export default function AuthLoginForm({ className, link }) {
   return (
     <MainCard className="mb-0">
       <div className="text-center">
-        <a>
-          <Image src={DarkLogo} alt="img" />
-        </a>
+        <h2>JMS Maps</h2>
       </div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <h4 className={`text-center f-w-500 mt-4 mb-3 ${className}`}>Login</h4>

@@ -1,4 +1,8 @@
-const icons = { dashboard: <i className="ph ph-house-line" />, layouts: <i className="ph ph-house-line" /> };
+const icons = {
+  dashboard: <i className="ph ph-house-line" />,
+  layouts: <i className="ph ph-house-line" />,
+  route: <i className="ph ph-path" />
+};
 
 const navigation = {
   id: 'group-dashboard-loading-unique',
@@ -12,6 +16,13 @@ const navigation = {
       type: 'item',
       icon: icons.dashboard,
       url: '/'
+    },
+    {
+      id: 'analysis',
+      title: 'Route Analysis',
+      type: 'item',
+      icon: icons.route,
+      url: '/route-analysis'
     }
   ]
 };
