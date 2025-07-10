@@ -212,7 +212,13 @@ export default function Header() {
                       Change Password
                     </Dropdown.Item>
                     <div className="d-grid my-2">
-                      <Button>
+                      <Button
+                        onClick={() => {
+                          localStorage.removeItem('user');
+                          sessionStorage.removeItem('user');
+                          window.location.href = '/auth/login';
+                        }}
+                      >
                         <i className="ph ph-sign-out align-middle me-2" />
                         Logout
                       </Button>
