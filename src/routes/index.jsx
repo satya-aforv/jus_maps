@@ -10,6 +10,7 @@ import Loadable from 'components/Loadable';
 
 import Profile from '../views/profile/index.jsx';
 import RouteAnalysisPage from '../views/route-analysis/index.jsx';
+import RouteTable from '../views/routeTable/index.jsx';
 const DefaultPages = Loadable(lazy(() => import('views/navigation/dashboard/Default')));
 
 const router = createBrowserRouter(
@@ -38,7 +39,11 @@ const router = createBrowserRouter(
               element: <Profile />
             },
             {
-              path: '/route-analysis',
+              path: '/routes',
+              element: <RouteTable />
+            },
+            {
+              path: '/route-analysis/:id',
               element: <RouteAnalysisPage />
             }
           ]

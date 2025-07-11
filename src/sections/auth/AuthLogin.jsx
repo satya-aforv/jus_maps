@@ -22,6 +22,7 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../../api/services/auth-service'; // Assuming you have an API function for login
 import { useDispatch } from 'react-redux';
 import { addUserData } from '../../redux/slices/authSlice';
+import { toast } from 'react-toastify';
 
 // ==============================|| AUTH LOGIN FORM ||============================== //
 
@@ -52,6 +53,7 @@ export default function AuthLoginForm({ className, link }) {
       const response = await login(userData);
 
       dispatch(addUserData(response));
+      toast.success(response?.message || 'Login successful!');
       localStorage.setItem('user', JSON.stringify(response));
       sessionStorage.setItem('user', JSON.stringify(response));
       console.log('API Response:', response);
@@ -59,6 +61,7 @@ export default function AuthLoginForm({ className, link }) {
       reset();
     } catch (error) {
       console.error('Login failed:', error);
+      toast.error(error?.message || 'Login failed. Please try again.');
       // Handle error (show toast, etc.)
     }
   };
@@ -121,7 +124,7 @@ export default function AuthLoginForm({ className, link }) {
             Login
           </Button>
         </div>
-        <Stack direction="horizontal" className="justify-content-between align-items-end mt-4">
+        <Stack direction="horizontal" className="justify-content-center row align-items-center mt-4" style={{ textAlign: 'center' }}>
           <h6 className={`f-w-500 mb-0 ${className}`}>Don't have an Account?</h6>
           <a href={link} className="link-primary">
             Create Account

@@ -1105,6 +1105,11 @@ classnames@^2.3.2:
   resolved "https://registry.npmjs.org/classnames/-/classnames-2.5.1.tgz"
   integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
 
+clsx@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz"
+  integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
+
 color-convert@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz"
@@ -2607,7 +2612,7 @@ react-device-detect@2.2.3:
   dependencies:
     ua-parser-js "^1.0.33"
 
-"react-dom@^16.8 || ^17 || ^18 || ^19", "react-dom@^18.0.0 || ^19.0.0", "react-dom@>= 0.14.0", react-dom@>=16.14.0, react-dom@>=16.6.0, react-dom@>=18, react-dom@18.2.0:
+"react-dom@^16.8 || ^17 || ^18 || ^19", "react-dom@^18 || ^19", "react-dom@^18.0.0 || ^19.0.0", "react-dom@>= 0.14.0", react-dom@>=16.14.0, react-dom@>=16.6.0, react-dom@>=18, react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -2670,6 +2675,13 @@ react-router@7.0.2:
     set-cookie-parser "^2.6.0"
     turbo-stream "2.4.0"
 
+react-toastify@^11.0.5:
+  version "11.0.5"
+  resolved "https://registry.npmjs.org/react-toastify/-/react-toastify-11.0.5.tgz"
+  integrity sha512-EpqHBGvnSTtHYhCPLxML05NLY2ZX0JURbAdNYa6BUkk+amz4wbKBQvoKQAB0ardvSarUBuY4Q4s1sluAzZwkmA==
+  dependencies:
+    clsx "^2.1.1"
+
 react-transition-group@^4.4.5:
   version "4.4.5"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz"
@@ -2680,7 +2692,7 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@*, "react@^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react@^16.9.0 || ^17.0.0 || ^18 || ^19", "react@^18.0 || ^19", "react@^18.0.0 || ^19.0.0", react@^18.2.0, "react@>= 0.14.0", react@>=0.13, react@>=0.14.0, react@>=15.0.0, react@>=16.14.0, react@>=16.6.0, react@>=16.8.0, react@>=18, react@18.2.0:
+react@*, "react@^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1", "react@^16.9.0 || ^17.0.0 || ^18 || ^19", "react@^18 || ^19", "react@^18.0 || ^19", "react@^18.0.0 || ^19.0.0", react@^18.2.0, "react@>= 0.14.0", react@>=0.13, react@>=0.14.0, react@>=15.0.0, react@>=16.14.0, react@>=16.6.0, react@>=16.8.0, react@>=18, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

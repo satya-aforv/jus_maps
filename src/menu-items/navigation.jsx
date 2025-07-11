@@ -1,7 +1,8 @@
 const icons = {
   dashboard: <i className="ph ph-house-line" />,
   layouts: <i className="ph ph-house-line" />,
-  route: <i className="ph ph-path" />
+  route: <i className="ph ph-path" />,
+  route_analysis: <i className="ph ph-path" />
 };
 
 const navigation = {
@@ -19,11 +20,18 @@ const navigation = {
     },
     {
       id: 'analysis',
-      title: 'Route Analysis',
+      title: 'Routes',
       type: 'item',
       icon: icons.route,
-      url: '/route-analysis'
+      url: '/routes'
     }
+    // {
+    //   id: 'route-analysis',
+    //   title: 'Routes',
+    //   type: 'item',
+    //   icon: icons.route_analysis,
+    //   url: '/routes'
+    // }
   ]
 };
 

@@ -23,3 +23,24 @@
 .border-dashed {
   border-style: dashed !important;
 }
+
+ul.dsk-bullet {
+  list-style: none;
+  padding-left: 0.1rem;
+}
+
+ul.dsk-bullet li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.8rem;
+  padding-top: 0.6rem;
+}
+
+ul.dsk-bullet li::before {
+  content: "•";
+  color: red;
+  font-size: 1.8rem;
+  position: absolute;
+  left: 0;
+  top: -0.3rem;
+}
