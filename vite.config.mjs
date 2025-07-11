@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const API_URL = `${env.VITE_APP_BASE_NAME}`;
   const PORT = 3000;
-  const BACKEND_URL = env.VITE_BACKEND_URL || 'http://localhost:8000'; // Default backend URL
+  const BACKEND_URL = env.VITE_BACKEND_URL || 'http://69.62.73.201:3000'; // Default backend URL
 
   return {
     server: {

@@ -4,6 +4,7 @@ import { FaUpload } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { addFileData } from '../../redux/slices/fileSlice'; // Adjust path as needed
 import apiService from '../../utils/ApiService';
+import { toast } from 'react-toastify';
 
 const UploadRouteCSV = () => {
   const [route, setRoute] = React.useState(null);
@@ -12,24 +13,23 @@ const UploadRouteCSV = () => {
   const [userData, setUserData] = React.useState(null);
 
   const handleUpload = async (e) => {
-    console.log(e);
     try {
       const file = e.target.files[0];
       if (file) {
         setFile(file);
       }
       const formData = new FormData();
-
+      console.log(file, 'file object');
       // Add file (note: in browser, you'd use a file input)
       // For Node.js, you might need fs.createReadStream()
       formData.append('gpsFile', file); // Replace with your file object
 
       // Add other form fields
-      formData.append('fromCode', '1146');
-      formData.append('fromName', 'meerut depot');
-      formData.append('toCode', '0041025372');
-      formData.append('toName', 'moti filling station');
-      formData.append('routeName', 'MEERUT to MOTI FIlling STation');
+      formData.append('fromCode', route?.bu_code || '0041025372');
+      formData.append('fromName', route?.location || 'meerut depot');
+      formData.append('toCode', route?.row_labels || '0041025372');
+      formData.append('toName', route?.customer_name || 'moti filling station');
+      formData.append('routeName', `${route?.location} to ${route?.customer_name}` || 'MEERUT to MOTI FIlling STation');
       formData.append('terrain', 'mixed');
 
       const response = await apiService.post('/routes/upload-gps-route', formData, {
@@ -39,20 +39,26 @@ const UploadRouteCSV = () => {
         }
       });
 
-      console.log('Upload successful:', response.data);
+      // console.log('Upload successful:', response.data);
+      toast.success(response?.message || 'File uploaded successfully!');
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      toast.error(error?.message || 'File upload failed. Please try again.');
+      // Handle error (show toast, etc.)
+      throw error; // Re-throw to handle in the calling function
+    }
   };
 
   useEffect(() => {
     const routeData = localStorage.getItem('selectedRoute');
     if (routeData) {
       setRoute(JSON.parse(routeData));
-      console.log('Route Data from URL:', JSON.parse(routeData));
+      // console.log('Route Data from URL:', JSON.parse(routeData));
     }
     const isUserExists = localStorage.getItem('user') || sessionStorage.getItem('user');
     const parsedUser = isUserExists ? JSON.parse(isUserExists) : null;
-    console.log(parsedUser?.user, 'profile');
+    // console.log(parsedUser?.user, 'profile');
     setUserData(parsedUser);
   }, []);
 

@@ -10,7 +10,6 @@ const ProfilePage = () => {
 
   const fetchProfile = async () => {
     try {
-      console.log(userData, 'userData');
       const result = await apiService.get(
         'auth/profile',
         {},
@@ -30,7 +29,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const isUserExists = localStorage.getItem('user') || sessionStorage.getItem('user');
     const parsedUser = isUserExists ? JSON.parse(isUserExists) : null;
-    console.log(parsedUser?.user, 'profile');
+    // console.log(parsedUser?.user, 'profile');
     setUserData(parsedUser);
     fetchProfile();
   }, []);

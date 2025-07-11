@@ -82,7 +82,7 @@ export default function AuthRegisterForm({ className, link }) {
 
       if (result?.success) {
         toast.success(result?.message || 'Registration successful! Please login to continue.');
-        console.log('API Response:', result);
+        // console.log('API Response:', result);
         localStorage.setItem('user', JSON.stringify(result));
         sessionStorage.setItem('user', JSON.stringify(result));
         dispatch(addUserData(result));

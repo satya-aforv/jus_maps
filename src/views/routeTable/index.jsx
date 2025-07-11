@@ -18,91 +18,217 @@ import apiService from '../../utils/ApiService';
 const routeData = [
   {
     id: 1,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041000139',
-    customer_name: 'G S BHATIA AND CO',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041000112',
+    customer_name: 'BAJAJ MOTOR',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 2,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041000154',
-    customer_name: 'BALAJI SERVICE STATION',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002363',
+    customer_name: 'MS/HSD SHRI JAMBHESHWAR AUTOCARE',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 3,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041001547',
-    customer_name: 'NATIONAL MINERAL DEVELOPMENT',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002365',
+    customer_name: 'SRI GAYATRI FILLING CENTRE',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 4,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041001560',
-    customer_name: 'NATIONAL MINERAL DEV CORPN LTD',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002367',
+    customer_name: 'MS HSD HAMARA PUMP GURANA UJJAWAL',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 5,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041001652',
-    customer_name: 'M/s-SECL, KUSMUNDA WORKSHOP-1',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002371',
+    customer_name: 'SHIV KAILASH FUEL POINT',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 6,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041007603',
-    customer_name: 'KAMAL TRADING CO',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002376',
+    customer_name: 'HAMARA PUMP GANPATI FUEL SORON',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 7,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041008073',
-    customer_name: 'JAI PRAHALLAD PETROLEUM',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002378',
+    customer_name: 'MS/HSD HAMARA PUMP SAFIYABAD LOTI',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 8,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041008075',
-    customer_name: 'MANIRAM RAMNIWAS FUELS',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002382',
+    customer_name: 'SHRI SAI HP',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 9,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041008079',
-    customer_name: 'GIRISH FUELS',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002385',
+    customer_name: 'ADHIRAJ HP',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
   {
     id: 10,
-    bu_code: '1527',
-    location: 'Raipur Depot',
-    row_labels: '0041008083',
-    customer_name: 'MENDANI NETAM FUEL STATION',
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002388',
+    customer_name: 'QUALITY FUELS',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 11,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002396',
+    customer_name: 'MS/HSD HIGHWAY PETROCAR',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 12,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002406',
+    customer_name: 'PATHED AUTO FUELS',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 13,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002419',
+    customer_name: 'KALSIYA FILLING STATION',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 14,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002424',
+    customer_name: 'SONY FILLING STATION',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 15,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002439',
+    customer_name: 'MADHAV FILLING STATION',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 16,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002447',
+    customer_name: 'SURABHI AUTOMOBILES',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 17,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002460',
+    customer_name: 'A.S. HP FILLING STATION',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 18,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002464',
+    customer_name: 'MS/HSD D V Fuels',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 19,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002472',
+    customer_name: 'HAYAT FILLING STATION',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 20,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002481',
+    customer_name: 'IMDAD HP FILLING STATION',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 21,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002486',
+    customer_name: 'MS/HSD D.R. SHARMA FUEL CENTRE',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 22,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002490',
+    customer_name: 'SHRI NANAK HP FILLING STATION',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 23,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041002498',
+    customer_name: 'MAHADEV FILLING STATION HP',
+    badge1: 'Reject',
+    badge2: 'Get Route'
+  },
+  {
+    id: 24,
+    bu_code: '1146',
+    location: 'MEERUT DEPOT',
+    row_labels: '0041025372',
+    customer_name: 'MOTI FILLING STATION',
     badge1: 'Reject',
     badge2: 'Get Route'
   }

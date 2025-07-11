@@ -56,7 +56,7 @@ export default function AuthLoginForm({ className, link }) {
       toast.success(response?.message || 'Login successful!');
       localStorage.setItem('user', JSON.stringify(response));
       sessionStorage.setItem('user', JSON.stringify(response));
-      console.log('API Response:', response);
+      // console.log('API Response:', response);
       navigate('/');
       reset();
     } catch (error) {
