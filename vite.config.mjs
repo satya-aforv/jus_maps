@@ -1,29 +1,51 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import jsconfigPaths from 'vite-jsconfig-paths';
-
 import path from 'path';
+
 const resolvePath = (str) => path.resolve(__dirname, str);
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const API_URL = `${env.VITE_APP_BASE_NAME}`;
   const PORT = 3000;
+  const BACKEND_URL = env.VITE_BACKEND_URL || 'http://localhost:8000'; // Default backend URL
 
   return {
     server: {
-      // this ensures that the browser opens upon server start
       open: true,
-      // this sets a default port to 3000
       port: PORT,
-      host: true
+      host: true,
+      // Add proxy configuration
+      proxy: {
+        '/api': {
+          target: BACKEND_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+          secure: false // Only if you're using self-signed certificates
+        },
+        '/socket.io': {
+          target: BACKEND_URL,
+          ws: true // For websocket connections
+        }
+      }
     },
     preview: {
       open: true,
-      host: true
+      host: true,
+      // Proxy for preview server as well
+      proxy: {
+        '/api': {
+          target: BACKEND_URL,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
+        }
+      }
     },
     define: {
-      global: 'window'
+      global: 'window',
+      // Expose backend URL to your application
+      __BACKEND_URL__: JSON.stringify(BACKEND_URL)
     },
     resolve: {
       alias: [
