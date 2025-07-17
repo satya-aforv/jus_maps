@@ -24,8 +24,8 @@ const routeData = [
     id: 1,
     bu_code: '1146',
     location: 'MEERUT DEPOT',
-    row_labels: '0041000112',
-    customer_name: 'BAJAJ MOTOR',
+    row_labels: '0041025372',
+    customer_name: 'MOTI FILLING STATION',
     badge1: 'Reject',
     badge2: 'Get Route'
   },
@@ -231,8 +231,8 @@ const routeData = [
     id: 24,
     bu_code: '1146',
     location: 'MEERUT DEPOT',
-    row_labels: '0041025372',
-    customer_name: 'MOTI FILLING STATION',
+    row_labels: '0041000112',
+    customer_name: 'BAJAJ MOTOR',
     badge1: 'Reject',
     badge2: 'Get Route'
   }
