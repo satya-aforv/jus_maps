@@ -2,6 +2,10 @@
 import Badge from 'react-bootstrap/Badge';
 import Image from 'react-bootstrap/Image';
 import Table from 'react-bootstrap/Table';
+import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import QRCode from 'react-qr-code';
 
 // project-imports
 import MainCard from 'components/MainCard';
@@ -238,11 +242,24 @@ const routeData = [
 
 export default function RouteTable() {
   const navigate = useNavigate();
+  const [showQR, setShowQR] = useState(false);
+  const [qrData, setQrData] = useState({});
 
   const handleRoute = (route) => {
     // Navigate to the route analysis page with the selected route ID
     navigate(`/route-analysis/${route.id}`);
     localStorage.setItem('selectedRoute', JSON.stringify(route));
+  };
+
+  const handleQRClick = (route) => {
+    setQrData(route);
+    setShowQR(true);
+  };
+
+  const handleClose = () => setShowQR(false);
+
+  const getQRValue = (row_labels = '0041000112') => {
+    return `${window.location.origin}/route-info/${row_labels}`;
   };
 
   return (
@@ -269,14 +286,70 @@ export default function RouteTable() {
                 {/* <Badge bg="brand-color-2" className="me-2 f-12">
                   {route.badge1}
                 </Badge> */}
+                {/* QR Code Image */}
                 <Badge bg="brand-color-1" className="me-2 f-12" style={{ cursor: 'pointer' }} onClick={() => handleRoute(route)}>
                   {route.badge2}
                 </Badge>
+                {/* <img
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=40x40&data=${encodeURIComponent(
+                    `Web Link: https://your-web-link.com/${route.row_labels}\nPDF: https://your-server.com/files/${route.row_labels}.pdf`
+                  )}`}
+                  alt="QR Code"
+                  style={{ verticalAlign: 'middle', marginRight: '8px', cursor: 'pointer' }}
+                  width={24}
+                  height={24}
+                  onClick={() => handleQRClick(route)}
+                /> */}
+                <span
+                  style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: 8, cursor: 'pointer' }}
+                  onClick={() => handleQRClick(route)}
+                >
+                  <QRCode value={getQRValue(route.row_labels)} size={32} style={{ background: 'white', padding: 2 }} />
+                </span>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
+
+      {/* QR Preview Modal */}
+      <Modal show={showQR} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>QR Code Preview</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          {/* <img
+            src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
+              `Web Link: https://your-web-link.com/${qrData.row_labels || ''}\nPDF: https://your-server.com/files/${qrData.row_labels || ''}.pdf`
+            )}`}
+            alt="QR Code Large"
+            width={200}
+            height={200}
+            style={{ marginBottom: 16 }}
+          /> */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 16 }}>
+            <QRCode value={getQRValue(qrData.row_labels || '0041000112')} size={200} style={{ background: 'white', padding: 8 }} />
+          </div>
+          {/* <div>
+            <a
+              href={`https://your-web-link.com/${qrData.row_labels || ''}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ marginRight: 16 }}
+            >
+              Open Web Link
+            </a>
+            <a href={`https://your-server.com/files/${qrData.row_labels || ''}.pdf`} download>
+              Download PDF
+            </a>
+          </div> */}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </MainCard>
   );
 }

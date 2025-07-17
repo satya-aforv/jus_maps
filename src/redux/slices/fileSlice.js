@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const fileSlice = createSlice({
   name: 'file',
   initialState: {
-    data: null
+    data: null,
+    fileData: null
   },
   reducers: {
     addFileData: (state, action) => {
@@ -21,9 +22,13 @@ const fileSlice = createSlice({
       state.loading = false;
       state.error = null;
       state.uploadProgress = 0;
+    },
+    addFileDataResponse: (state, action) => {
+      state.fileData = action.payload;
+      state.error = null;
     }
   }
 });
 
-export const { addFileData, uploadFile } = fileSlice.actions;
+export const { addFileData, uploadFile, addFileDataResponse } = fileSlice.actions;
 export default fileSlice.reducer;
