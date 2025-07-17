@@ -46,10 +46,6 @@ const router = createBrowserRouter(
             {
               path: '/route-analysis/:id',
               element: <RouteAnalysisPage />
-            },
-            {
-              path: '/route-info/:id',
-              element: <RouteInfo />
             }
           ]
         }
@@ -62,6 +58,10 @@ const router = createBrowserRouter(
         // ...ChartMapRoutes,
         // ...OtherRoutes
       ]
+    },
+    {
+      path: '/route-info/:id',
+      element: <RouteInfo />
     },
     {
       path: '/auth',
