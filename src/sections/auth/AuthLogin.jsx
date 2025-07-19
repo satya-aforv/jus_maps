@@ -50,99 +50,99 @@ export default function AuthLoginForm({ className, link }) {
         email: email,
         password: password
       };
-      // const response = await login(userData);
-      const response = {
-        success: true,
-        message: 'Login successful',
-        token:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZiYjUyMmU2NmE0YTM5ODI1ZmM4NGQiLCJpYXQiOjE3NTIwNDE1ODYsImV4cCI6MTc1MjY0NjM4Nn0.MVeTnZFPyntMPbTHGfwNhDGljIitS1fQIhLLSnh-DEc',
-        user: {
-          id: '686bb522e66a4a39825fc84d',
-          username: 'testuser',
-          email: 'test@hpcl.com',
-          role: 'user',
-          profile: {
-            firstName: 'Test',
-            lastName: 'User',
-            department: 'Logistics',
-            employeeId: 'EMP001'
-          },
-          lastLogin: '2025-07-09T06:13:06.521Z'
-        }
-      };
+      const response = await login(userData);
+      // const response = {
+      //   success: true,
+      //   message: 'Login successful',
+      //   token:
+      //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZiYjUyMmU2NmE0YTM5ODI1ZmM4NGQiLCJpYXQiOjE3NTIwNDE1ODYsImV4cCI6MTc1MjY0NjM4Nn0.MVeTnZFPyntMPbTHGfwNhDGljIitS1fQIhLLSnh-DEc',
+      //   user: {
+      //     id: '686bb522e66a4a39825fc84d',
+      //     username: 'testuser',
+      //     email: 'test@hpcl.com',
+      //     role: 'user',
+      //     profile: {
+      //       firstName: 'Test',
+      //       lastName: 'User',
+      //       department: 'Logistics',
+      //       employeeId: 'EMP001'
+      //     },
+      //     lastLogin: '2025-07-09T06:13:06.521Z'
+      //   }
+      // };
 
       dispatch(addUserData(response));
       toast.success(response?.message || 'Login successful!');
       localStorage.setItem('user', JSON.stringify(response));
       sessionStorage.setItem('user', JSON.stringify(response));
-      localStorage.setItem(
-        'selectedRoute',
-        JSON.stringify({
-          id: 24,
-          bu_code: '1146',
-          location: 'MEERUT DEPOT',
-          row_labels: '0041025372',
-          customer_name: 'MOTI FILLING STATION',
-          badge1: 'Reject',
-          badge2: 'Get Route'
-        })
-      );
-      localStorage.setItem(
-        'routeData',
-        JSON.stringify({
-          route: {
-            id: '68720afde66a4a398260468b',
-            routeId: 'RT1752304381828QNQC4',
-            routeName: 'MEERUT DEPOT to MOTI FILLING STATION',
-            fromCode: '1146',
-            fromName: 'MEERUT DEPOT',
-            toCode: '0041025372',
-            toName: 'MOTI FILLING STATION',
-            totalDistance: 79.85000000000053,
-            estimatedDuration: 120,
-            liveMapLink:
-              'https://www.google.com/maps/dir/28.94966,77.65907/29.00264,77.64778/29.04554,77.69698/29.1035,77.71146/29.19274,77.71915/29.24784,77.72425/29.30014,77.72028/29.38893,77.70152/29.44968,77.73611/29.53461,77.73553',
-            coordinates: {
-              start: {
-                latitude: 28.94966,
-                longitude: 77.65907
-              },
-              end: {
-                latitude: 29.53461,
-                longitude: 77.73553
-              }
-            },
-            gpsTracking: {
-              totalPoints: 1878,
-              startPoint: '28.94966, 77.65907',
-              endPoint: '29.53461, 77.73553',
-              parseErrors: 1,
-              accuracy: 'excellent'
-            }
-          },
-          processing: {
-            totalLinesProcessed: 1879,
-            validGPSPoints: 1878,
-            parseErrors: 1,
-            successRate: '100%',
-            trackingAccuracy: 'excellent'
-          },
-          errors: [
-            {
-              line: 1,
-              error: 'Invalid coordinate values (not numbers)',
-              data: 'Latitude,Longitude'
-            }
-          ],
-          nextSteps: [
-            'GPS route has been created with detailed tracking points',
-            'You can view the route on Google Maps using the live link',
-            'Use /api/routes/:id/collect-all-data to gather comprehensive route data',
-            'Individual GPS points are stored for detailed analysis',
-            'Route is ready for risk assessment and analysis'
-          ]
-        })
-      );
+      // localStorage.setItem(
+      //   'selectedRoute',
+      //   JSON.stringify({
+      //     id: 24,
+      //     bu_code: '1146',
+      //     location: 'MEERUT DEPOT',
+      //     row_labels: '0041025372',
+      //     customer_name: 'MOTI FILLING STATION',
+      //     badge1: 'Reject',
+      //     badge2: 'Get Route'
+      //   })
+      // );
+      // localStorage.setItem(
+      //   'routeData',
+      //   JSON.stringify({
+      //     route: {
+      //       id: '68720afde66a4a398260468b',
+      //       routeId: 'RT1752304381828QNQC4',
+      //       routeName: 'MEERUT DEPOT to MOTI FILLING STATION',
+      //       fromCode: '1146',
+      //       fromName: 'MEERUT DEPOT',
+      //       toCode: '0041025372',
+      //       toName: 'MOTI FILLING STATION',
+      //       totalDistance: 79.85000000000053,
+      //       estimatedDuration: 120,
+      //       liveMapLink:
+      //         'https://www.google.com/maps/dir/28.94966,77.65907/29.00264,77.64778/29.04554,77.69698/29.1035,77.71146/29.19274,77.71915/29.24784,77.72425/29.30014,77.72028/29.38893,77.70152/29.44968,77.73611/29.53461,77.73553',
+      //       coordinates: {
+      //         start: {
+      //           latitude: 28.94966,
+      //           longitude: 77.65907
+      //         },
+      //         end: {
+      //           latitude: 29.53461,
+      //           longitude: 77.73553
+      //         }
+      //       },
+      //       gpsTracking: {
+      //         totalPoints: 1878,
+      //         startPoint: '28.94966, 77.65907',
+      //         endPoint: '29.53461, 77.73553',
+      //         parseErrors: 1,
+      //         accuracy: 'excellent'
+      //       }
+      //     },
+      //     processing: {
+      //       totalLinesProcessed: 1879,
+      //       validGPSPoints: 1878,
+      //       parseErrors: 1,
+      //       successRate: '100%',
+      //       trackingAccuracy: 'excellent'
+      //     },
+      //     errors: [
+      //       {
+      //         line: 1,
+      //         error: 'Invalid coordinate values (not numbers)',
+      //         data: 'Latitude,Longitude'
+      //       }
+      //     ],
+      //     nextSteps: [
+      //       'GPS route has been created with detailed tracking points',
+      //       'You can view the route on Google Maps using the live link',
+      //       'Use /api/routes/:id/collect-all-data to gather comprehensive route data',
+      //       'Individual GPS points are stored for detailed analysis',
+      //       'Route is ready for risk assessment and analysis'
+      //     ]
+      //   })
+      // );
       // console.log('API Response:', response);
       navigate('/');
       reset();
